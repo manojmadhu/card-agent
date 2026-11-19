@@ -1,0 +1,96 @@
+[
+  {
+    "file": "fazaa_silver.jpg",
+    "family": "fazaa",
+    "variant": "silver",
+    "expected_status": "ACCEPT",
+    "card_number": "1042873391",
+    "holder_name": "AHMED ALI HASSAN"
+  },
+  {
+    "file": "fazaa_gold.jpg",
+    "family": "fazaa",
+    "variant": "gold",
+    "expected_status": "ACCEPT",
+    "card_number": "2210457783",
+    "holder_name": "FATIMA SAEED"
+  },
+  {
+    "file": "fazaa_platinum.jpg",
+    "family": "fazaa",
+    "variant": "platinum",
+    "expected_status": "ACCEPT",
+    "card_number": "3198822450",
+    "holder_name": "OMAR KHALID"
+  },
+  {
+    "file": "fazaa_gold_upside_down.jpg",
+    "family": "fazaa",
+    "variant": "gold",
+    "expected_status": "ACCEPT",
+    "card_number": "2877001234",
+    "holder_name": "MARIAM YOUSEF"
+  },
+  {
+    "file": "fazaa_gold_prefix_mismatch.jpg",
+    "family": "fazaa",
+    "variant": "gold",
+    "expected_status": "REVIEW",
+    "card_number": "1877001299",
+    "holder_name": "KHALID RASHID"
+  },
+  {
+    "file": "esaad_classic.jpg",
+    "family": "esaad",
+    "variant": "classic",
+    "expected_status": "ACCEPT",
+    "card_number": "104455667788",
+    "holder_name": "SARA AL MANSOORI"
+  },
+  {
+    "file": "esaad_gold.jpg",
+    "family": "esaad",
+    "variant": "gold",
+    "expected_status": "ACCEPT",
+    "card_number": "209988776655",
+    "holder_name": "NOURA SALEM"
+  },
+  {
+    "file": "esaad_platinum.jpg",
+    "family": "esaad",
+    "variant": "platinum",
+    "expected_status": "ACCEPT",
+    "card_number": "301122334455",
+    "holder_name": "YOUSEF IBRAHIM"
+  },
+  {
+    "file": "esaad_privilege.jpg",
+    "family": "esaad",
+    "variant": "privilege",
+    "expected_status": "ACCEPT",
+    "card_number": "405566778899",
+    "holder_name": "HESSA MOHAMMED"
+  },
+  {
+    "file": "esaad_gold_expired.jpg",
+    "family": "esaad",
+    "variant": "gold",
+    "expected_status": "REJECT",
+    "card_number": "201234567890",
+    "holder_name": "RASHID OBAID"
+  },
+  {
+    "file": "fazaa_blurry.jpg",
+    "family": "fazaa",
+    "variant": "silver",
+    "expected_status": "REJECT",
+    "card_number": "1042873391",
+    "holder_name": "AHMED ALI HASSAN"
+  },
+  {
+    "file": "unknown_card.jpg",
+    "family": null,
+    "variant": null,
+    "expected_status": "REJECT"
+  }
+]

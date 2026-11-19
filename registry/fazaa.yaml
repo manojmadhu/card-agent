@@ -1,0 +1,59 @@
+# Card family definition. Layout, colours and number formats below are PLACEHOLDERS —
+# calibrate them against real card samples before production.
+family: fazaa
+family_name: Fazaa
+issuer: Fazaa (UAE)
+schema_version: 1
+
+keywords:            # any of these in OCR text => strong evidence for this family
+  - FAZAA
+  - FAZA
+  - فزعة
+negative_keywords:   # text that rules this family out
+  - ESAAD
+  - سعاد
+
+weights: {text: 0.55, visual: 0.30, colour: 0.15}
+
+variants:
+  - id: silver
+    name: Fazaa Silver
+    body_color_rgb: [192, 194, 198]
+    keywords: [SILVER, فضية]
+    number_prefix: "1"
+  - id: gold
+    name: Fazaa Gold
+    body_color_rgb: [201, 162, 39]
+    keywords: [GOLD, ذهبية]
+    number_prefix: "2"
+  - id: platinum
+    name: Fazaa Platinum
+    body_color_rgb: [58, 60, 66]
+    keywords: [PLATINUM, بلاتينية]
+    number_prefix: "3"
+
+# ROI = [x0, y0, x1, y1] as fractions of the normalised card (1012x638)
+fields:
+  - name: holder_name
+    roi: [0.05, 0.55, 0.75, 0.68]
+    regex: "^[A-Z][A-Z .'-]{2,40}$"
+    required: true
+    normalise: upper
+  - name: card_number
+    roi: [0.05, 0.40, 0.75, 0.54]
+    regex: "^\\d{10}$"
+    required: true
+    normalise: digits
+    anchor: null
+  - name: expiry_date
+    roi: [0.05, 0.72, 0.50, 0.86]
+    regex: "^(0[1-9]|1[0-2])/(\\d{2}|\\d{4})$"
+    required: true
+    normalise: date_mm_yy
+    anchor: EXP
+
+rules:
+  - {type: regex, field: card_number, critical: true}
+  - {type: regex, field: holder_name, critical: false}
+  - {type: not_expired, field: expiry_date, critical: true}
+  - {type: prefix_matches_variant, field: card_number, critical: false}

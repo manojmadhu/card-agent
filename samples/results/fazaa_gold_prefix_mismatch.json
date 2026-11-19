@@ -1,0 +1,141 @@
+{
+  "schema_version": "1.0",
+  "request_id": "fazaa_gold_prefix_mismatch.jpg",
+  "status": "REVIEW",
+  "card": {
+    "family": "fazaa",
+    "family_name": "Fazaa",
+    "issuer": "Fazaa (UAE)",
+    "family_confidence": 0.923,
+    "variant": "gold",
+    "variant_name": "Fazaa Gold",
+    "variant_confidence": 0.64
+  },
+  "fields": {
+    "holder_name": {
+      "value": "KHALID RASHID",
+      "confidence": 0.96,
+      "source": "ocr_roi",
+      "valid_format": true
+    },
+    "card_number": {
+      "value": "1877001299",
+      "confidence": 0.887,
+      "source": "ocr_roi",
+      "valid_format": true
+    },
+    "expiry_date": {
+      "value": "05/28",
+      "confidence": 0.675,
+      "source": "ocr_roi",
+      "valid_format": true,
+      "valid_until": "2028-05-31"
+    }
+  },
+  "validation": [
+    {
+      "rule": "regex",
+      "field": "card_number",
+      "critical": true,
+      "result": "pass",
+      "detail": null
+    },
+    {
+      "rule": "regex",
+      "field": "holder_name",
+      "critical": false,
+      "result": "pass",
+      "detail": null
+    },
+    {
+      "rule": "not_expired",
+      "field": "expiry_date",
+      "critical": true,
+      "result": "pass",
+      "detail": "valid_until=2028-05-31"
+    },
+    {
+      "rule": "prefix_matches_variant",
+      "field": "card_number",
+      "critical": false,
+      "result": "fail",
+      "detail": "NUMBER_PREFIX_VARIANT_MISMATCH"
+    }
+  ],
+  "reasons": [
+    "RULE_FAILED:prefix_matches_variant:card_number"
+  ],
+  "quality": {
+    "width": 1600,
+    "height": 1200,
+    "blur": 264.5,
+    "brightness": 0.603,
+    "glare_ratio": 0.0,
+    "passed": true,
+    "issues": [],
+    "card_detected": true,
+    "detector": "colour",
+    "rotation": 0,
+    "ocr_mean_conf": 0.866
+  },
+  "candidates": {
+    "family": [
+      {
+        "family": "fazaa",
+        "score": 0.923,
+        "signals": {
+          "text": 1.0,
+          "visual": 0.967,
+          "colour": 0.55
+        }
+      },
+      {
+        "family": "esaad",
+        "score": 0.284,
+        "signals": {
+          "text": 0.0,
+          "visual": 0.608,
+          "colour": 0.678
+        }
+      }
+    ],
+    "variant": [
+      {
+        "variant": "gold",
+        "score": 0.64,
+        "signals": {
+          "colour": 0.433,
+          "keyword": 1.0,
+          "visual": 0.967,
+          "prefix": 0.0
+        }
+      },
+      {
+        "variant": "silver",
+        "score": 0.212,
+        "signals": {
+          "colour": 0.049,
+          "keyword": 0.0,
+          "visual": 0.6,
+          "prefix": 1.0
+        }
+      },
+      {
+        "variant": "platinum",
+        "score": 0.01,
+        "signals": {
+          "colour": 0.013,
+          "keyword": 0.0,
+          "visual": 0.03,
+          "prefix": 0.0
+        }
+      }
+    ]
+  },
+  "model_versions": {
+    "pipeline": "0.2.0",
+    "registry": "19ac45a982e6",
+    "ocr": "tesseract-5.4.0.20240606"
+  },
+  "processing_ms": 1381
+}

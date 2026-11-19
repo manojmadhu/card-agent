@@ -1,0 +1,30 @@
+{
+  "schema_version": "1.0",
+  "request_id": "fazaa_blurry.jpg",
+  "status": "REJECT",
+  "card": null,
+  "fields": {},
+  "validation": [],
+  "reasons": [
+    "RETAKE_REQUIRED",
+    "IMAGE_BLURRY"
+  ],
+  "quality": {
+    "width": 1600,
+    "height": 1200,
+    "blur": 1.3,
+    "brightness": 0.755,
+    "glare_ratio": 0.0,
+    "passed": false,
+    "issues": [
+      "IMAGE_BLURRY"
+    ]
+  },
+  "candidates": {},
+  "model_versions": {
+    "pipeline": "0.2.0",
+    "registry": "19ac45a982e6",
+    "ocr": "tesseract-5.4.0.20240606"
+  },
+  "processing_ms": 25
+}

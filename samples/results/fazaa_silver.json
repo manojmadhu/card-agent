@@ -1,0 +1,139 @@
+{
+  "schema_version": "1.0",
+  "request_id": "fazaa_silver.jpg",
+  "status": "ACCEPT",
+  "card": {
+    "family": "fazaa",
+    "family_name": "Fazaa",
+    "issuer": "Fazaa (UAE)",
+    "family_confidence": 0.818,
+    "variant": "silver",
+    "variant_name": "Fazaa Silver",
+    "variant_confidence": 0.675
+  },
+  "fields": {
+    "holder_name": {
+      "value": "AHMED ALI HASSAN",
+      "confidence": 0.957,
+      "source": "ocr_roi",
+      "valid_format": true
+    },
+    "card_number": {
+      "value": "1042873391",
+      "confidence": 0.95,
+      "source": "ocr_roi",
+      "valid_format": true
+    },
+    "expiry_date": {
+      "value": "08/28",
+      "confidence": 0.915,
+      "source": "ocr_roi",
+      "valid_format": true,
+      "valid_until": "2028-08-31"
+    }
+  },
+  "validation": [
+    {
+      "rule": "regex",
+      "field": "card_number",
+      "critical": true,
+      "result": "pass",
+      "detail": null
+    },
+    {
+      "rule": "regex",
+      "field": "holder_name",
+      "critical": false,
+      "result": "pass",
+      "detail": null
+    },
+    {
+      "rule": "not_expired",
+      "field": "expiry_date",
+      "critical": true,
+      "result": "pass",
+      "detail": "valid_until=2028-08-31"
+    },
+    {
+      "rule": "prefix_matches_variant",
+      "field": "card_number",
+      "critical": false,
+      "result": "pass",
+      "detail": null
+    }
+  ],
+  "reasons": [],
+  "quality": {
+    "width": 1600,
+    "height": 1200,
+    "blur": 320.1,
+    "brightness": 0.647,
+    "glare_ratio": 0.0,
+    "passed": true,
+    "issues": [],
+    "card_detected": true,
+    "detector": "edges",
+    "rotation": 0,
+    "ocr_mean_conf": 0.903
+  },
+  "candidates": {
+    "family": [
+      {
+        "family": "fazaa",
+        "score": 0.818,
+        "signals": {
+          "text": 1.0,
+          "visual": 0.635,
+          "colour": 0.518
+        }
+      },
+      {
+        "family": "esaad",
+        "score": 0.309,
+        "signals": {
+          "text": 0.0,
+          "visual": 0.6,
+          "colour": 0.857
+        }
+      }
+    ],
+    "variant": [
+      {
+        "variant": "silver",
+        "score": 0.675,
+        "signals": {
+          "colour": 0.399,
+          "keyword": 1.0,
+          "visual": 0.635,
+          "prefix": 1.0
+        }
+      },
+      {
+        "variant": "gold",
+        "score": 0.122,
+        "signals": {
+          "colour": 0.071,
+          "keyword": 0.0,
+          "visual": 0.6,
+          "prefix": 0.0
+        }
+      },
+      {
+        "variant": "platinum",
+        "score": 0.007,
+        "signals": {
+          "colour": 0.011,
+          "keyword": 0.0,
+          "visual": 0.01,
+          "prefix": 0.0
+        }
+      }
+    ]
+  },
+  "model_versions": {
+    "pipeline": "0.2.0",
+    "registry": "19ac45a982e6",
+    "ocr": "tesseract-5.4.0.20240606"
+  },
+  "processing_ms": 1732
+}

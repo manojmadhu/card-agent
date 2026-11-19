@@ -1,0 +1,30 @@
+{
+  "schema_version": "1.0",
+  "request_id": "esaad_classic.jpg",
+  "status": "REJECT",
+  "card": null,
+  "fields": {},
+  "validation": [],
+  "reasons": [
+    "RETAKE_REQUIRED",
+    "IMAGE_BLURRY"
+  ],
+  "quality": {
+    "width": 723,
+    "height": 424,
+    "blur": 23.6,
+    "brightness": 0.37,
+    "glare_ratio": 0.0055,
+    "passed": false,
+    "issues": [
+      "IMAGE_BLURRY"
+    ]
+  },
+  "candidates": {},
+  "model_versions": {
+    "pipeline": "0.2.0",
+    "registry": "19ac45a982e6",
+    "ocr": "tesseract-5.4.0.20240606"
+  },
+  "processing_ms": 8
+}

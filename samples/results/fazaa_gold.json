@@ -1,0 +1,139 @@
+{
+  "schema_version": "1.0",
+  "request_id": "fazaa_gold.jpg",
+  "status": "ACCEPT",
+  "card": {
+    "family": "fazaa",
+    "family_name": "Fazaa",
+    "issuer": "Fazaa (UAE)",
+    "family_confidence": 0.993,
+    "variant": "gold",
+    "variant_name": "Fazaa Gold",
+    "variant_confidence": 0.981
+  },
+  "fields": {
+    "holder_name": {
+      "value": "FATIMA SAEED",
+      "confidence": 0.955,
+      "source": "ocr_roi",
+      "valid_format": true
+    },
+    "card_number": {
+      "value": "2210457783",
+      "confidence": 0.933,
+      "source": "ocr_roi",
+      "valid_format": true
+    },
+    "expiry_date": {
+      "value": "11/27",
+      "confidence": 0.955,
+      "source": "ocr_roi",
+      "valid_format": true,
+      "valid_until": "2027-11-30"
+    }
+  },
+  "validation": [
+    {
+      "rule": "regex",
+      "field": "card_number",
+      "critical": true,
+      "result": "pass",
+      "detail": null
+    },
+    {
+      "rule": "regex",
+      "field": "holder_name",
+      "critical": false,
+      "result": "pass",
+      "detail": null
+    },
+    {
+      "rule": "not_expired",
+      "field": "expiry_date",
+      "critical": true,
+      "result": "pass",
+      "detail": "valid_until=2027-11-30"
+    },
+    {
+      "rule": "prefix_matches_variant",
+      "field": "card_number",
+      "critical": false,
+      "result": "pass",
+      "detail": null
+    }
+  ],
+  "reasons": [],
+  "quality": {
+    "width": 1600,
+    "height": 1200,
+    "blur": 306.0,
+    "brightness": 0.643,
+    "glare_ratio": 0.0,
+    "passed": true,
+    "issues": [],
+    "card_detected": true,
+    "detector": "colour",
+    "rotation": 0,
+    "ocr_mean_conf": 0.932
+  },
+  "candidates": {
+    "family": [
+      {
+        "family": "fazaa",
+        "score": 0.993,
+        "signals": {
+          "text": 1.0,
+          "visual": 0.989,
+          "colour": 0.972
+        }
+      },
+      {
+        "family": "esaad",
+        "score": 0.298,
+        "signals": {
+          "text": 0.0,
+          "visual": 0.608,
+          "colour": 0.773
+        }
+      }
+    ],
+    "variant": [
+      {
+        "variant": "gold",
+        "score": 0.981,
+        "signals": {
+          "colour": 0.961,
+          "keyword": 1.0,
+          "visual": 0.989,
+          "prefix": 1.0
+        }
+      },
+      {
+        "variant": "silver",
+        "score": 0.116,
+        "signals": {
+          "colour": 0.058,
+          "keyword": 0.0,
+          "visual": 0.6,
+          "prefix": 0.0
+        }
+      },
+      {
+        "variant": "platinum",
+        "score": 0.01,
+        "signals": {
+          "colour": 0.006,
+          "keyword": 0.0,
+          "visual": 0.05,
+          "prefix": 0.0
+        }
+      }
+    ]
+  },
+  "model_versions": {
+    "pipeline": "0.2.0",
+    "registry": "19ac45a982e6",
+    "ocr": "tesseract-5.4.0.20240606"
+  },
+  "processing_ms": 1899
+}

@@ -1,0 +1,164 @@
+{
+  "schema_version": "1.0",
+  "request_id": "esaad_privilege.jpg",
+  "status": "REVIEW",
+  "card": {
+    "family": "esaad",
+    "family_name": "Esaad",
+    "issuer": "Esaad (Dubai)",
+    "family_confidence": 0.876,
+    "variant": "privilege",
+    "variant_name": "Esaad Privilege",
+    "variant_confidence": 0.904
+  },
+  "fields": {
+    "holder_name": {
+      "value": "HESSA MOHAMMED",
+      "confidence": 0.935,
+      "source": "ocr_roi",
+      "valid_format": true
+    },
+    "card_number": {
+      "value": "405566778899",
+      "confidence": 0.957,
+      "source": "ocr_roi",
+      "valid_format": true
+    },
+    "emirates_id": {
+      "value": "784-1992-3334445-5",
+      "confidence": 0.92,
+      "source": "ocr_roi",
+      "valid_format": true
+    },
+    "expiry_date": {
+      "value": "1/29",
+      "confidence": 0.87,
+      "source": "ocr_roi",
+      "valid_format": false
+    }
+  },
+  "validation": [
+    {
+      "rule": "regex",
+      "field": "card_number",
+      "critical": true,
+      "result": "pass",
+      "detail": null
+    },
+    {
+      "rule": "regex",
+      "field": "holder_name",
+      "critical": false,
+      "result": "pass",
+      "detail": null
+    },
+    {
+      "rule": "emirates_id_format",
+      "field": "emirates_id",
+      "critical": false,
+      "result": "pass",
+      "detail": null
+    },
+    {
+      "rule": "not_expired",
+      "field": "expiry_date",
+      "critical": true,
+      "result": "fail",
+      "detail": "UNPARSEABLE_DATE"
+    },
+    {
+      "rule": "prefix_matches_variant",
+      "field": "card_number",
+      "critical": false,
+      "result": "pass",
+      "detail": null
+    }
+  ],
+  "reasons": [
+    "FIELD_UNREADABLE:expiry_date",
+    "RULE_FAILED:not_expired:expiry_date"
+  ],
+  "quality": {
+    "width": 1600,
+    "height": 1200,
+    "blur": 612.7,
+    "brightness": 0.427,
+    "glare_ratio": 0.0,
+    "passed": true,
+    "issues": [],
+    "card_detected": true,
+    "detector": "colour",
+    "rotation": 0,
+    "ocr_mean_conf": 0.83
+  },
+  "candidates": {
+    "family": [
+      {
+        "family": "esaad",
+        "score": 0.876,
+        "signals": {
+          "text": 1.0,
+          "visual": 0.618,
+          "colour": 0.938
+        }
+      },
+      {
+        "family": "fazaa",
+        "score": 0.219,
+        "signals": {
+          "text": 0.0,
+          "visual": 0.606,
+          "colour": 0.247
+        }
+      }
+    ],
+    "variant": [
+      {
+        "variant": "privilege",
+        "score": 0.904,
+        "signals": {
+          "colour": 0.914,
+          "keyword": 1.0,
+          "visual": 0.618,
+          "prefix": 1.0
+        }
+      },
+      {
+        "variant": "classic",
+        "score": 0.102,
+        "signals": {
+          "colour": 0.026,
+          "keyword": 0.0,
+          "visual": 0.6,
+          "prefix": 0.0
+        }
+      },
+      {
+        "variant": "gold",
+        "score": 0.002,
+        "signals": {
+          "colour": 0.001,
+          "keyword": 0.0,
+          "visual": 0.01,
+          "prefix": 0.0
+        }
+      },
+      {
+        "variant": "platinum",
+        "score": 0.002,
+        "signals": {
+          "colour": 0.002,
+          "keyword": 0.0,
+          "visual": 0.011,
+          "prefix": 0.0
+        }
+      }
+    ]
+  },
+  "model_versions": {
+    "pipeline": "0.2.0",
+    "registry": "19ac45a982e6",
+    "ocr": "tesseract-5.4.0.20240606"
+  },
+  "processing_ms": 1802
+}
